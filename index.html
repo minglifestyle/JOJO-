@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Friendship Wrapped</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            overflow: hidden;
+        }
+
+
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            box-sizing: border-box;
+            position: absolute;
+            transition: transform 0.5s ease-in-out;
+            background: linear-gradient(180deg, #1DB954 0%, #121212 100%);
+        }
+
+
+        h1 { font-size: 3rem; font-weight: 900; margin-bottom: 20px; }
+        p { font-size: 1.5rem; line-height: 1.4; }
+        .number { font-size: 5rem; font-weight: 900; color: #fff; display: block; }
+        
+        /* 唔同 Slide 唔同色 */
+        #slide1 { background: #1DB954; transform: translateX(0); }
+        #slide2 { background: #ff4632; transform: translateX(100%); }
+        #slide3 { background: #509bf5; transform: translateX(100%); }
+        #slide4 { background: #b49bc8; transform: translateX(100%); }
+
+
+        .btn-next {
+            position: absolute;
+            bottom: 50px;
+            background: white;
+            color: black;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="slide1" class="slide">
+        <h1>2025<br>Friendship<br>Wrapped</h1>
+        <p>準備好睇吓我哋今年點過未？</p>
+        <div class="btn-next" onclick="nextSlide(2)">撳我開始</div>
+    </div>
+
+
+    <div id="slide2" class="slide">
+        <p>我哋今年總共</p>
+        <span class="number">52</span>
+        <p>次一齊飲茶/食飯</p>
+        <div class="btn-next" onclick="nextSlide(3)">繼續睇</div>
+    </div>
+
+
+    <div id="slide3" class="slide">
+        <p>你今年講得最多嘅金句：</p>
+        <h1>「幾時收工呀？」</h1>
+        <p>你係我嘅 Top 0.1% 核心好友</p>
+        <div class="btn-next" onclick="nextSlide(4)">最後...</div>
+    </div>
+
+
+    <div id="slide4" class="slide">
+        <h1>多謝你<br>喺我嘅 2025 入面</h1>
+        <p>2026 繼續單曲循環</p>
+        <div class="btn-next" onclick="location.reload()">再睇一次</div>
+    </div>
+
+
+    <script>
+        function nextSlide(n) {
+            const current = document.querySelector('.slide:nth-child(' + (n-1) + ')');
+            const next = document.getElementById('slide' + n);
+            current.style.transform = 'translateX(-100%)';
+            next.style.transform = 'translateX(0)';
+        }
+    </script>
+</body>
+</html>
